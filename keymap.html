@@ -162,6 +162,7 @@
 <tr><td><code>f</code></td><td>Find next char</td><td><code>find_next_char</code></td></tr>
 <tr><td><code>T</code></td><td>Find 'till previous char</td><td><code>till_prev_char</code></td></tr>
 <tr><td><code>F</code></td><td>Find previous char</td><td><code>find_prev_char</code></td></tr>
+<tr><td><code>G</code></td><td>Go to line number <code>&lt;n&gt;</code></td><td><code>goto_line</code></td></tr>
 <tr><td><code>Alt-.</code></td><td>Repeat last motion (<code>f</code>, <code>t</code> or <code>m</code>)</td><td><code>repeat_last_motion</code></td></tr>
 <tr><td><code>Home</code></td><td>Move to the start of the line</td><td><code>goto_line_start</code></td></tr>
 <tr><td><code>End</code></td><td>Move to the end of the line</td><td><code>goto_line_end</code></td></tr>
@@ -212,8 +213,8 @@
 <tr><td><code>Alt-c</code></td><td>Change selection (delete and enter insert mode, without yanking)</td><td><code>change_selection_noyank</code></td></tr>
 <tr><td><code>Ctrl-a</code></td><td>Increment object (number) under cursor</td><td><code>increment</code></td></tr>
 <tr><td><code>Ctrl-x</code></td><td>Decrement object (number) under cursor</td><td><code>decrement</code></td></tr>
-<tr><td><code>q</code></td><td>Start/stop macro recording to the selected register</td><td><code>record_macro</code></td></tr>
-<tr><td><code>Q</code></td><td>Play back a recorded macro from the selected register</td><td><code>play_macro</code></td></tr>
+<tr><td><code>Q</code></td><td>Start/stop macro recording to the selected register (experimental)</td><td><code>record_macro</code></td></tr>
+<tr><td><code>q</code></td><td>Play back a recorded macro from the selected register (experimental)</td><td><code>replay_macro</code></td></tr>
 </tbody></table>
 <h4 id="shell"><a class="header" href="#shell">Shell</a></h4>
 <table><thead><tr><th>Key</th><th>Description</th><th>Command</th></tr></thead><tbody>
@@ -279,7 +280,7 @@ over text and not actively editing it).</p>
 <h4 id="goto-mode"><a class="header" href="#goto-mode">Goto mode</a></h4>
 <p>Jumps to various locations.</p>
 <table><thead><tr><th>Key</th><th>Description</th><th>Command</th></tr></thead><tbody>
-<tr><td><code>g</code></td><td>Go to the start of the file</td><td><code>goto_file_start</code></td></tr>
+<tr><td><code>g</code></td><td>Go to line number <code>&lt;n&gt;</code> else start of file</td><td><code>goto_file_start</code></td></tr>
 <tr><td><code>e</code></td><td>Go to the end of the file</td><td><code>goto_last_line</code></td></tr>
 <tr><td><code>f</code></td><td>Go to files in the selection</td><td><code>goto_file</code></td></tr>
 <tr><td><code>h</code></td><td>Go to the start of the line</td><td><code>goto_line_start</code></td></tr>
@@ -363,6 +364,8 @@ and <a href="./usage.html#textobject">textobject</a> usage.</p>
 <tr><td><code>]D</code></td><td>Go to last diagnostic in document (<strong>LSP</strong>)</td><td><code>goto_last_diag</code></td></tr>
 <tr><td><code>[space</code></td><td>Add newline above</td><td><code>add_newline_above</code></td></tr>
 <tr><td><code>]space</code></td><td>Add newline below</td><td><code>add_newline_below</code></td></tr>
+<tr><td><code>]o</code></td><td>Expand syntax tree object selection.</td><td><code>expand_selection</code></td></tr>
+<tr><td><code>[o</code></td><td>Shrink syntax tree object selection.</td><td><code>shrink_selection</code></td></tr>
 </tbody></table>
 <h2 id="insert-mode"><a class="header" href="#insert-mode">Insert Mode</a></h2>
 <table><thead><tr><th>Key</th><th>Description</th><th>Command</th></tr></thead><tbody>

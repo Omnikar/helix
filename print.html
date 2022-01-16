@@ -257,6 +257,7 @@ currently have the query file implemented. Contributions are welcome !</p>
 <tr><td><code>f</code></td><td>Find next char</td><td><code>find_next_char</code></td></tr>
 <tr><td><code>T</code></td><td>Find 'till previous char</td><td><code>till_prev_char</code></td></tr>
 <tr><td><code>F</code></td><td>Find previous char</td><td><code>find_prev_char</code></td></tr>
+<tr><td><code>G</code></td><td>Go to line number <code>&lt;n&gt;</code></td><td><code>goto_line</code></td></tr>
 <tr><td><code>Alt-.</code></td><td>Repeat last motion (<code>f</code>, <code>t</code> or <code>m</code>)</td><td><code>repeat_last_motion</code></td></tr>
 <tr><td><code>Home</code></td><td>Move to the start of the line</td><td><code>goto_line_start</code></td></tr>
 <tr><td><code>End</code></td><td>Move to the end of the line</td><td><code>goto_line_end</code></td></tr>
@@ -307,8 +308,8 @@ currently have the query file implemented. Contributions are welcome !</p>
 <tr><td><code>Alt-c</code></td><td>Change selection (delete and enter insert mode, without yanking)</td><td><code>change_selection_noyank</code></td></tr>
 <tr><td><code>Ctrl-a</code></td><td>Increment object (number) under cursor</td><td><code>increment</code></td></tr>
 <tr><td><code>Ctrl-x</code></td><td>Decrement object (number) under cursor</td><td><code>decrement</code></td></tr>
-<tr><td><code>q</code></td><td>Start/stop macro recording to the selected register</td><td><code>record_macro</code></td></tr>
-<tr><td><code>Q</code></td><td>Play back a recorded macro from the selected register</td><td><code>play_macro</code></td></tr>
+<tr><td><code>Q</code></td><td>Start/stop macro recording to the selected register (experimental)</td><td><code>record_macro</code></td></tr>
+<tr><td><code>q</code></td><td>Play back a recorded macro from the selected register (experimental)</td><td><code>replay_macro</code></td></tr>
 </tbody></table>
 <h4 id="shell"><a class="header" href="#shell">Shell</a></h4>
 <table><thead><tr><th>Key</th><th>Description</th><th>Command</th></tr></thead><tbody>
@@ -374,7 +375,7 @@ over text and not actively editing it).</p>
 <h4 id="goto-mode"><a class="header" href="#goto-mode">Goto mode</a></h4>
 <p>Jumps to various locations.</p>
 <table><thead><tr><th>Key</th><th>Description</th><th>Command</th></tr></thead><tbody>
-<tr><td><code>g</code></td><td>Go to the start of the file</td><td><code>goto_file_start</code></td></tr>
+<tr><td><code>g</code></td><td>Go to line number <code>&lt;n&gt;</code> else start of file</td><td><code>goto_file_start</code></td></tr>
 <tr><td><code>e</code></td><td>Go to the end of the file</td><td><code>goto_last_line</code></td></tr>
 <tr><td><code>f</code></td><td>Go to files in the selection</td><td><code>goto_file</code></td></tr>
 <tr><td><code>h</code></td><td>Go to the start of the line</td><td><code>goto_line_start</code></td></tr>
@@ -458,6 +459,8 @@ and <a href="./usage.html#textobject">textobject</a> usage.</p>
 <tr><td><code>]D</code></td><td>Go to last diagnostic in document (<strong>LSP</strong>)</td><td><code>goto_last_diag</code></td></tr>
 <tr><td><code>[space</code></td><td>Add newline above</td><td><code>add_newline_above</code></td></tr>
 <tr><td><code>]space</code></td><td>Add newline below</td><td><code>add_newline_below</code></td></tr>
+<tr><td><code>]o</code></td><td>Expand syntax tree object selection.</td><td><code>expand_selection</code></td></tr>
+<tr><td><code>[o</code></td><td>Shrink syntax tree object selection.</td><td><code>shrink_selection</code></td></tr>
 </tbody></table>
 <h2 id="insert-mode"><a class="header" href="#insert-mode">Insert Mode</a></h2>
 <table><thead><tr><th>Key</th><th>Description</th><th>Command</th></tr></thead><tbody>
@@ -543,6 +546,7 @@ implemented for all movement commands yet.</p>
 <tr><td><code>:quit-all</code>, <code>:qa</code></td><td>Close all views.</td></tr>
 <tr><td><code>:quit-all!</code>, <code>:qa!</code></td><td>Close all views forcefully (ignoring unsaved changes).</td></tr>
 <tr><td><code>:cquit</code>, <code>:cq</code></td><td>Quit with exit code (default 1). Accepts an optional integer exit code (:cq 2).</td></tr>
+<tr><td><code>:cquit!</code>, <code>:cq!</code></td><td>Quit with exit code (default 1) forcefully (ignoring unsaved changes). Accepts an optional integer exit code (:cq! 2).</td></tr>
 <tr><td><code>:theme</code></td><td>Change the editor theme.</td></tr>
 <tr><td><code>:clipboard-yank</code></td><td>Yank main selection into system clipboard.</td></tr>
 <tr><td><code>:clipboard-yank-join</code></td><td>Yank joined selections into system clipboard. A separator can be provided as first argument. Default value is newline.</td></tr>
@@ -564,6 +568,9 @@ implemented for all movement commands yet.</p>
 <tr><td><code>:hsplit</code>, <code>:hs</code>, <code>:sp</code></td><td>Open the file in a horizontal split.</td></tr>
 <tr><td><code>:tutor</code></td><td>Open the tutorial.</td></tr>
 <tr><td><code>:goto</code>, <code>:g</code></td><td>Go to line number.</td></tr>
+<tr><td><code>:set-option</code>, <code>:set</code></td><td>Set a config option at runtime</td></tr>
+<tr><td><code>:sort</code></td><td>Sort ranges in selection.</td></tr>
+<tr><td><code>:rsort</code></td><td>Sort ranges in selection in reverse order.</td></tr>
 </tbody></table>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="language-support"><a class="header" href="#language-support">Language Support</a></h1>
 <p>For more information like arguments passed to default LSP server,
@@ -572,24 +579,35 @@ specific indent settings, etc see the default
 <a href="https://github.com/helix-editor/helix/blob/master/languages.toml"><code>languages.toml</code></a> file.</p>
 <table><thead><tr><th>Language</th><th>Syntax Highlighting</th><th>Treesitter Textobjects</th><th>Auto Indent</th><th>Default LSP</th></tr></thead><tbody>
 <tr><td>bash</td><td>✓</td><td></td><td></td><td><code>bash-language-server</code></td></tr>
-<tr><td>c</td><td>✓</td><td></td><td></td><td><code>clangd</code></td></tr>
+<tr><td>c</td><td>✓</td><td>✓</td><td>✓</td><td><code>clangd</code></td></tr>
 <tr><td>c-sharp</td><td>✓</td><td></td><td></td><td></td></tr>
-<tr><td>cmake</td><td>✓</td><td></td><td></td><td><code>cmake-language-server</code></td></tr>
-<tr><td>cpp</td><td>✓</td><td></td><td></td><td><code>clangd</code></td></tr>
+<tr><td>cmake</td><td>✓</td><td>✓</td><td>✓</td><td><code>cmake-language-server</code></td></tr>
+<tr><td>comment</td><td>✓</td><td></td><td></td><td></td></tr>
+<tr><td>cpp</td><td>✓</td><td>✓</td><td>✓</td><td><code>clangd</code></td></tr>
 <tr><td>css</td><td>✓</td><td></td><td></td><td></td></tr>
 <tr><td>dart</td><td>✓</td><td></td><td>✓</td><td><code>dart</code></td></tr>
+<tr><td>dockerfile</td><td>✓</td><td></td><td></td><td><code>docker-langserver</code></td></tr>
 <tr><td>elixir</td><td>✓</td><td></td><td></td><td><code>elixir-ls</code></td></tr>
+<tr><td>fish</td><td>✓</td><td>✓</td><td>✓</td><td></td></tr>
+<tr><td>git-commit</td><td>✓</td><td></td><td></td><td></td></tr>
+<tr><td>git-config</td><td>✓</td><td></td><td></td><td></td></tr>
+<tr><td>git-diff</td><td>✓</td><td></td><td></td><td></td></tr>
+<tr><td>git-rebase</td><td>✓</td><td></td><td></td><td></td></tr>
 <tr><td>glsl</td><td>✓</td><td></td><td>✓</td><td></td></tr>
 <tr><td>go</td><td>✓</td><td>✓</td><td>✓</td><td><code>gopls</code></td></tr>
+<tr><td>haskell</td><td>✓</td><td></td><td></td><td></td></tr>
 <tr><td>html</td><td>✓</td><td></td><td></td><td></td></tr>
 <tr><td>java</td><td>✓</td><td></td><td></td><td></td></tr>
-<tr><td>javascript</td><td>✓</td><td></td><td>✓</td><td></td></tr>
+<tr><td>javascript</td><td>✓</td><td></td><td>✓</td><td><code>typescript-language-server</code></td></tr>
 <tr><td>json</td><td>✓</td><td></td><td>✓</td><td></td></tr>
 <tr><td>julia</td><td>✓</td><td></td><td></td><td><code>julia</code></td></tr>
 <tr><td>latex</td><td>✓</td><td></td><td></td><td></td></tr>
 <tr><td>ledger</td><td>✓</td><td></td><td></td><td></td></tr>
-<tr><td>llvm</td><td>✓</td><td></td><td></td><td></td></tr>
+<tr><td>llvm</td><td>✓</td><td>✓</td><td>✓</td><td></td></tr>
+<tr><td>llvm-mir</td><td>✓</td><td>✓</td><td>✓</td><td></td></tr>
+<tr><td>llvm-mir-yaml</td><td>✓</td><td></td><td>✓</td><td></td></tr>
 <tr><td>lua</td><td>✓</td><td></td><td>✓</td><td></td></tr>
+<tr><td>make</td><td>✓</td><td></td><td></td><td></td></tr>
 <tr><td>markdown</td><td>✓</td><td></td><td></td><td></td></tr>
 <tr><td>mint</td><td></td><td></td><td></td><td><code>mint</code></td></tr>
 <tr><td>nix</td><td>✓</td><td></td><td>✓</td><td><code>rnix-lsp</code></td></tr>
@@ -601,10 +619,12 @@ specific indent settings, etc see the default
 <tr><td>protobuf</td><td>✓</td><td></td><td>✓</td><td></td></tr>
 <tr><td>python</td><td>✓</td><td>✓</td><td>✓</td><td><code>pylsp</code></td></tr>
 <tr><td>racket</td><td></td><td></td><td></td><td><code>racket</code></td></tr>
-<tr><td>ruby</td><td>✓</td><td></td><td></td><td><code>solargraph</code></td></tr>
+<tr><td>regex</td><td>✓</td><td></td><td></td><td></td></tr>
+<tr><td>ruby</td><td>✓</td><td></td><td>✓</td><td><code>solargraph</code></td></tr>
 <tr><td>rust</td><td>✓</td><td>✓</td><td>✓</td><td><code>rust-analyzer</code></td></tr>
 <tr><td>scala</td><td>✓</td><td></td><td>✓</td><td><code>metals</code></td></tr>
 <tr><td>svelte</td><td>✓</td><td></td><td>✓</td><td><code>svelteserver</code></td></tr>
+<tr><td>tablegen</td><td>✓</td><td>✓</td><td>✓</td><td></td></tr>
 <tr><td>toml</td><td>✓</td><td></td><td></td><td></td></tr>
 <tr><td>tsq</td><td>✓</td><td></td><td></td><td></td></tr>
 <tr><td>tsx</td><td>✓</td><td></td><td></td><td><code>typescript-language-server</code></td></tr>
@@ -648,7 +668,7 @@ single width selection.</p>
 <tr><td><code>auto-info</code></td><td>Whether to display infoboxes</td><td><code>true</code></td></tr>
 <tr><td><code>true-color</code></td><td>Set to <code>true</code> to override automatic detection of terminal truecolor support in the event of a false negative.</td><td><code>false</code></td></tr>
 </tbody></table>
-<p><code>[editor.filepicker]</code> section of the config. Sets options for file picker and global search. All but the last key listed in the default file-picker configuration below are IgnoreOptions: whether hidden files and files listed within ignore files are ignored by (not visible in) the helix file picker and global search. There is also one other key, <code>max-depth</code> available, which is not defined by default.</p>
+<p><code>[editor.file-picker]</code> section of the config. Sets options for file picker and global search. All but the last key listed in the default file-picker configuration below are IgnoreOptions: whether hidden files and files listed within ignore files are ignored by (not visible in) the helix file picker and global search. There is also one other key, <code>max-depth</code> available, which is not defined by default.</p>
 <table><thead><tr><th>Key</th><th>Description</th><th>Default</th></tr></thead><tbody>
 <tr><td><code>hidden</code></td><td>Enables ignoring hidden files.</td><td>true</td></tr>
 <tr><td><code>parents</code></td><td>Enables reading ignore files from parent directories.</td><td>true</td></tr>
@@ -664,11 +684,11 @@ single width selection.</p>
 display-messages = true
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="themes"><a class="header" href="#themes">Themes</a></h1>
-<p>First you'll need to place selected themes in your <code>themes</code> directory (i.e <code>~/.config/helix/themes</code>), the directory might have to be created beforehand.</p>
-<p>To use a custom theme add <code>theme = &lt;name&gt;</code> to your <a href="./configuration.html"><code>config.toml</code></a> or override it during runtime using <code>:theme &lt;name&gt;</code>.</p>
-<p>The default theme.toml can be found <a href="https://github.com/helix-editor/helix/blob/master/theme.toml">here</a>, and user submitted themes <a href="https://github.com/helix-editor/helix/blob/master/runtime/themes">here</a>. </p>
+<p>To use a theme add <code>theme = &quot;&lt;name&gt;&quot;</code> to your <a href="./configuration.html"><code>config.toml</code></a> at the very top of the file before the first section or select it during runtime using <code>:theme &lt;name&gt;</code>.</p>
 <h2 id="creating-a-theme"><a class="header" href="#creating-a-theme">Creating a theme</a></h2>
-<p>First create a file with the name of your theme as file name (i.e <code>mytheme.toml</code>) and place it in your <code>themes</code> directory (i.e <code>~/.config/helix/themes</code>).</p>
+<p>Create a file with the name of your theme as file name (i.e <code>mytheme.toml</code>) and place it in your <code>themes</code> directory (i.e <code>~/.config/helix/themes</code>). The directory might have to be created beforehand.</p>
+<p>The names &quot;default&quot; and &quot;base16_default&quot; are reserved for the builtin themes and cannot be overridden by user defined themes.</p>
+<p>The default theme.toml can be found <a href="https://github.com/helix-editor/helix/blob/master/theme.toml">here</a>, and user submitted themes <a href="https://github.com/helix-editor/helix/blob/master/runtime/themes">here</a>. </p>
 <p>Each line in the theme file is specified as below:</p>
 <pre><code class="language-toml">key = { fg = &quot;#ffffff&quot;, bg = &quot;#000000&quot;, modifiers = [&quot;bold&quot;, &quot;italic&quot;] }
 </code></pre>
@@ -741,6 +761,9 @@ over it and is merged into the default palette.</p>
 <ul>
 <li><code>builtin</code> - Primitive types provided by the language (<code>int</code>, <code>usize</code>)</li>
 </ul>
+</li>
+<li>
+<p><code>constructor</code></p>
 </li>
 <li>
 <p><code>constant</code> (TODO: constant.other.placeholder for %v)</p>
@@ -819,6 +842,7 @@ over it and is merged into the default palette.</p>
 <li><code>repeat</code> - <code>for</code>, <code>while</code>, <code>loop</code></li>
 <li><code>import</code> - <code>import</code>, <code>export</code></li>
 <li><code>return</code></li>
+<li><code>exception</code></li>
 </ul>
 </li>
 <li><code>operator</code> - <code>or</code>, <code>in</code></li>
@@ -856,9 +880,11 @@ over it and is merged into the default palette.</p>
 </li>
 <li><code>bold</code></li>
 <li><code>italic</code></li>
-<li><code>underline</code>
+<li><code>link</code>
 <ul>
-<li><code>link</code></li>
+<li><code>url</code> - urls pointed to by links</li>
+<li><code>label</code> - non-url link references</li>
+<li><code>text</code> - url and image descriptions in links</li>
 </ul>
 </li>
 <li><code>quote</code></li>
@@ -866,6 +892,18 @@ over it and is merged into the default palette.</p>
 <ul>
 <li><code>inline</code></li>
 <li><code>block</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><code>diff</code> - version control changes</p>
+<ul>
+<li><code>plus</code> - additions</li>
+<li><code>minus</code> - deletions</li>
+<li><code>delta</code> - modifications
+<ul>
+<li><code>moved</code> - renamed or moved files/changes</li>
 </ul>
 </li>
 </ul>
@@ -996,12 +1034,23 @@ directory</a>.</p>
 <tr><td>shebangs</td><td>The interpreters from the shebang line, for example <code>[&quot;sh&quot;, &quot;bash&quot;]</code></td></tr>
 <tr><td>roots</td><td>A set of marker files to look for when trying to find the workspace root. For example <code>Cargo.lock</code>, <code>yarn.lock</code></td></tr>
 <tr><td>auto-format</td><td>Whether to autoformat this language when saving</td></tr>
+<tr><td>diagnostic-severity</td><td>Minimal severity of diagnostic for it to be displayed. (Allowed values: <code>Error</code>, <code>Warning</code>, <code>Info</code>, <code>Hint</code>)</td></tr>
 <tr><td>comment-token</td><td>The token to use as a comment-token</td></tr>
 <tr><td>indent</td><td>The indent to use. Has sub keys <code>tab-width</code> and <code>unit</code></td></tr>
 <tr><td>config</td><td>Language server configuration</td></tr>
 </tbody></table>
 <h2 id="queries"><a class="header" href="#queries">Queries</a></h2>
-<p>For a language to have syntax-highlighting and indentation among other things, you have to add queries. Add a directory for your language with the path <code>runtime/queries/&lt;name&gt;/</code>. The tree-sitter <a href="https://tree-sitter.github.io/tree-sitter/syntax-highlighting#queries">website</a> gives more info on how to write queries.</p>
+<p>For a language to have syntax-highlighting and indentation among
+other things, you have to add queries. Add a directory for your
+language with the path <code>runtime/queries/&lt;name&gt;/</code>. The tree-sitter
+<a href="https://tree-sitter.github.io/tree-sitter/syntax-highlighting#queries">website</a>
+gives more info on how to write queries.</p>
+<blockquote>
+<p>NOTE: When evaluating queries, the first matching query takes
+precedence, which is different from other editors like neovim where
+the last matching query supercedes the ones before it. See
+<a href="https://github.com/helix-editor/helix/pull/1170#issuecomment-997294090">this issue</a> for an example.</p>
+</blockquote>
 <h2 id="common-issues"><a class="header" href="#common-issues">Common Issues</a></h2>
 <ul>
 <li>
