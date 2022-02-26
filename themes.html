@@ -325,7 +325,12 @@ over it and is merged into the default palette.</p>
 <li>
 <p><code>markup</code></p>
 <ul>
-<li><code>heading</code></li>
+<li><code>heading</code>
+<ul>
+<li><code>marker</code></li>
+<li><code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>, <code>6</code> - heading text for h1 through h6</li>
+</ul>
+</li>
 <li><code>list</code>
 <ul>
 <li><code>unnumbered</code></li>
@@ -365,6 +370,34 @@ over it and is merged into the default palette.</p>
 </ul>
 <h4 id="interface"><a class="header" href="#interface">Interface</a></h4>
 <p>These scopes are used for theming the editor interface.</p>
+<ul>
+<li><code>markup</code>
+<ul>
+<li><code>normal</code>
+<ul>
+<li><code>completion</code> - for completion doc popup ui</li>
+<li><code>hover</code> - for hover popup ui</li>
+</ul>
+</li>
+<li><code>heading</code>
+<ul>
+<li><code>completion</code> - for completion doc popup ui</li>
+<li><code>hover</code> - for hover popup ui</li>
+</ul>
+</li>
+<li><code>raw</code>
+<ul>
+<li><code>inline</code>
+<ul>
+<li><code>completion</code> - for completion doc popup ui</li>
+<li><code>hover</code> - for hover popup ui</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <table><thead><tr><th>Key</th><th>Notes</th></tr></thead><tbody>
 <tr><td><code>ui.background</code></td><td></td></tr>
 <tr><td><code>ui.cursor</code></td><td></td></tr>
