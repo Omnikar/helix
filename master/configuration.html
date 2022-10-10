@@ -169,13 +169,14 @@ on unix operating systems.</p>
 <h2 id="editor"><a class="header" href="#editor">Editor</a></h2>
 <h3 id="editor-section"><a class="header" href="#editor-section"><code>[editor]</code> Section</a></h3>
 <div class="table-wrapper"><table><thead><tr><th>Key</th><th>Description</th><th>Default</th></tr></thead><tbody>
-<tr><td><code>scrolloff</code></td><td>Number of lines of padding around the edge of the screen when scrolling.</td><td><code>3</code></td></tr>
+<tr><td><code>scrolloff</code></td><td>Number of lines of padding around the edge of the screen when scrolling.</td><td><code>5</code></td></tr>
 <tr><td><code>mouse</code></td><td>Enable mouse mode.</td><td><code>true</code></td></tr>
 <tr><td><code>middle-click-paste</code></td><td>Middle click paste support.</td><td><code>true</code></td></tr>
 <tr><td><code>scroll-lines</code></td><td>Number of lines to scroll per scroll wheel step.</td><td><code>3</code></td></tr>
 <tr><td><code>shell</code></td><td>Shell to use when running external commands.</td><td>Unix: <code>[&quot;sh&quot;, &quot;-c&quot;]</code><br/>Windows: <code>[&quot;cmd&quot;, &quot;/C&quot;]</code></td></tr>
 <tr><td><code>line-number</code></td><td>Line number display: <code>absolute</code> simply shows each line's number, while <code>relative</code> shows the distance from the current line. When unfocused or in insert mode, <code>relative</code> will still show absolute line numbers.</td><td><code>absolute</code></td></tr>
 <tr><td><code>cursorline</code></td><td>Highlight all lines with a cursor.</td><td><code>false</code></td></tr>
+<tr><td><code>cursorcolumn</code></td><td>Highlight all columns with a cursor.</td><td><code>false</code></td></tr>
 <tr><td><code>gutters</code></td><td>Gutters to display: Available are <code>diagnostics</code> and <code>line-numbers</code> and <code>spacer</code>, note that <code>diagnostics</code> also includes other features like breakpoints, 1-width padding will be inserted if gutters is non-empty</td><td><code>[&quot;diagnostics&quot;, &quot;line-numbers&quot;]</code></td></tr>
 <tr><td><code>auto-completion</code></td><td>Enable automatic pop up of auto-completion.</td><td><code>true</code></td></tr>
 <tr><td><code>auto-format</code></td><td>Enable automatic formatting on save.</td><td><code>true</code></td></tr>
