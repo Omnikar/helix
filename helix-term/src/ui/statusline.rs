@@ -177,7 +177,7 @@ where
         format!(" {mode_str} ")
     } else {
         // If not focused, explicitly leave an empty space instead of returning None.
-        " ".repeat(mode_str.width() + 2)
+        " ".repeat(mode_str.width() + 3)
     };
     let style = if visible && config.color_modes {
         match context.editor.mode() {
@@ -189,6 +189,12 @@ where
         Style::default()
     };
     write(context, Span::styled(content, style));
+    if visible {
+        let style = style
+            .fg(style.bg.unwrap_or(helix_view::theme::Color::Reset))
+            .bg(style.fg.unwrap_or(helix_view::theme::Color::Reset));
+        write(context, Span::styled("", style));
+    }
 }
 
 fn render_lsp_spinner<'a, F>(context: &mut RenderContext<'a>, write: F)
